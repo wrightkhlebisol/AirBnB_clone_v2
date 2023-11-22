@@ -15,7 +15,7 @@ class BaseModel:
             self.updated_at = datetime.now()
             if kwargs:
                 for k, v in kwargs.items():
-                    setattr(self, k,v)
+                    setattr(self, k, v)
             storage.new(self)
         else:
             kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'],
