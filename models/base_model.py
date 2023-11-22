@@ -13,7 +13,8 @@ class BaseModel:
         """Instatntiates a new model"""
         if (not kwargs or 'id' not in kwargs):
             from models import storage
-            self.id = Column(String(60), unique=True, nullable=False, primary_key=True)
+            self.id = Column(String(60), unique=True,
+                             nullable=False, primary_key=True)
             self.created_at = Column(DateTime(), nullable=False,
                                      default=datetime.utcnow())
             self.updated_at = Column(DateTime(), nullable=False,
