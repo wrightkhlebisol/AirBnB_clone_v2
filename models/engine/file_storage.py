@@ -31,11 +31,12 @@ class FileStorage:
             json.dump(temp, f)
 
     def delete(self, obj=None):
-        for object in self.__objects.values():
-            print("Each Object: ", object.id)
-            if obj.id == object.id:
-                self.__objects.popitem()
-                break
+        if obj:
+            for object in self.__objects.values():
+                # print("Each Object: ", object.id)
+                if obj.id == object.id:
+                    self.__objects.popitem()
+                    break
 
     def reload(self):
         """Loads storage dictionary from file"""
