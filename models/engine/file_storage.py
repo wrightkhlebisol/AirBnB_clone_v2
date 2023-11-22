@@ -10,11 +10,12 @@ class FileStorage:
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        # if cls:
-        #     filteredObj = {}
-        #     for obj in self.__objects:
-        #         if obj == cls:
-        #             filteredObj.
+        if cls:
+            filteredObj = {}
+            for obj in self.__objects:
+                if obj == cls:
+                    filteredObj
+            return filteredObj
         return FileStorage.__objects
 
     def new(self, obj):
@@ -31,6 +32,7 @@ class FileStorage:
             json.dump(temp, f)
 
     def delete(self, obj=None):
+        """ Delete obj from storage"""
         if obj:
             for object in self.__objects.values():
                 # print("Each Object: ", object.id)
