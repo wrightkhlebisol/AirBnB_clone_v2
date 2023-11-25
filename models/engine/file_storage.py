@@ -18,8 +18,8 @@ class FileStorage:
                     filtered_objs[key] = obj
 
             return filtered_objs
-
-        return FileStorage.__objects
+        else:
+            return FileStorage.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -37,9 +37,10 @@ class FileStorage:
 
     def delete(self, obj=None):
         """ Delete obj from storage"""
+
         if obj:
-            for key, s_obj in self.__objects.values():
-                if obj.id == s_obj.id:
+            for key in self.__objects.keys():
+                if obj == self.__objects[key]:
                     self.__objects.pop(key)
 
                     break
