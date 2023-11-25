@@ -6,8 +6,7 @@ from sqlalchemy import Column, String
 Base = declarative_base()
 
 
-class State(BaseModel):
+class State(BaseModel, Base):
     """ State class """
-    # __tablename__ = "states"
-    name = ""
-    # Column(String(128), nullable=False)
+    __tablename__ = "states"
+    name = Column(String(128), nullable=False)
