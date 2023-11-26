@@ -3,7 +3,6 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-from models import User, Place, State, City, Amenity, Review
 from models.base_model import Base
 
 
@@ -56,6 +55,7 @@ class DBStorage:
         pass
 
     def reload(self):
+        from models import User, Place, State, City, Amenity, Review
         Base.metadata.create_all(self.__engine)
         self.__session = scoped_session(
             sessionmaker(
