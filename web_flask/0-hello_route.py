@@ -9,4 +9,4 @@ app = Flask(__name__)
 def hello():
     """Show a response when route is accessed."""
 
-    return 'Hello HBNB!''
+    return 'Hello HBNB!'
