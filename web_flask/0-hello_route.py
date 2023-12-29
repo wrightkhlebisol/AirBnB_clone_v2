@@ -10,3 +10,7 @@ def hello():
     """Show a response when route is accessed."""
 
     return 'Hello HBNB!'
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
