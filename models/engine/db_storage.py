@@ -54,6 +54,9 @@ class DBStorage:
 
         pass
 
+    def close(self):
+        self.__session.remove()
+
     def reload(self):
         from models import User, Place, State, City, Amenity, Review
         Base.metadata.create_all(self.__engine)
