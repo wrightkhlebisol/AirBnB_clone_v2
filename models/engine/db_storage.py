@@ -53,6 +53,9 @@ class DBStorage:
         if self:
             self.__session.delete(obj)
 
+    def close(self):
+        self.__session.remove()
+
     def reload(self):
         # from models import User, Place, State, City, Amenity, Review
         from models.base_model import BaseModel
