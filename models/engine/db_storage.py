@@ -14,7 +14,7 @@ class DBStorage:
     def __init__(self):
         user = os.getenv('HBNB_MYSQL_USER')
         pwd = os.getenv('HBNB_MYSQL_PWD')
-        host = os.getenv('HBNB_MYSQL')
+        host = os.getenv('HBNB_MYSQL_HOST')
         db = os.getenv('HBNB_MYSQL_DB')
         env = os.getenv('HBNB_ENV')
 
@@ -45,17 +45,24 @@ class DBStorage:
     def new(self, obj):
         with self.__session() as session:
             session.add(obj)
-            session.commit()
 
     def save(self):
-        pass
+        self.__session.commit()
 
     def delete(self, obj=None):
-
-        pass
+        if self:
+            self.__session.delete(obj)
 
     def reload(self):
-        from models import User, Place, State, City, Amenity, Review
+        # from models import User, Place, State, City, Amenity, Review
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+
         Base.metadata.create_all(self.__engine)
         self.__session = scoped_session(
             sessionmaker(
